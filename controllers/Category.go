@@ -37,7 +37,9 @@ func (c *CategoryController) Get() {
 
 	c.Data["MyCategory"] = true
 	c.Data["Title"] = "分类-"+beego.AppConfig.String("title")
+	c.Data["MyLogin"] = checkAccount(c.Ctx)
 	c.TplName = "category.html"
+
 	var err error
 	c.Data["Categories"],err = models.GetAllCategories()
 	if err != nil {

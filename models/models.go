@@ -22,19 +22,20 @@ type Category struct {
 }
 
 type Topic struct {
-	Id               int64
-	Uid              int64
+	Id               int
+	Uid              int
 	Title            string
 	Content          string `orm:"size(5000)"`
 	Attachment       string
 	Created          time.Time `orm:"index"`
 	Updated          time.Time `orm:"index"`
-	Views            int64	`orm:"index"`
+	Views            int	`orm:"index"`
 	Author           string
 	ReplyTime        time.Time `orm:"index"`
-	ReplyCount       int64
-	ReplayLastUserId int64
+	ReplyCount       int
+	ReplayLastUserId int
 }
+
 
 func RegisterDB() {
 
@@ -93,4 +94,16 @@ func GetAllCategories() ([]*Category, error)  {
 	qs := o.QueryTable("category")
 	_, err := qs.All(&cates)
 	return cates,err
+}
+func AddTopic(title,content string) error {
+	o := orm.NewOrm()
+
+	topic := &Topic{
+		Title:title,
+		Content:content,
+		Created:time.Now(),
+		Updated:time.Now(),
+	}
+	_,err := o.Insert(topic)
+	return err
 }
