@@ -6,17 +6,19 @@
 <body>
 {{template "menu" .}}
 <div class="container">
+    {{range .Topic}}
     <div class="page-header">
         <h1>
-            我的第一篇文章
+            {{.Title}}
         </h1>
         <h6>
-            文章发表于 2018 年 3 月 30 日 17:00,共有 200 次浏览, 100 条评论
+            文章发表于{{.Created}},共有 {{.Views}} 次浏览, {{.ReplyCount}} 条评论
         </h6>
         <p>
-            大家好我很666666666666666666666666666666666666666666666666666666
+            {{.Content}}
         </p>
     </div>
+            {{end}}
 </div>
 <script type="text/javascript" src="http://cdn.staticfile.org/jquery/2.0.3/jquery.min.js">
 </script>

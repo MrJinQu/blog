@@ -8,7 +8,7 @@
             <li {{if .MyHome}}class="active"{{end}}>
                 <a href="/">
                     首页
-                </li>
+            </li>
             </a>
             <li {{if .MyCategory}}class="active"{{end}}>
                 <a href="/category">

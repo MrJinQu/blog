@@ -11,4 +11,5 @@ func init() {
 	beego.Router("/category", &controllers.CategoryController{})
 	beego.Router("/topic", &controllers.TopicController{})
 	beego.AutoRouter(&controllers.TopicController{})
+	beego.Router("/baopeng",&controllers.BaopengController{})
 }

@@ -1,0 +1,18 @@
+{{template "header"}}
+<title>
+{{.Topic.Title}}-{{.Title}}
+</title>
+</head>
+<body>
+{{template "menu" .}}
+<div class="container" style="max-width: 90%">
+
+    <h1 class="page">
+        {{.Topic.Title}}
+        <a href="/topic/modify?tid={{.Tid}}" class="btn btn-default">修改文章</a>
+    </h1>
+
+    {{.Topic.Content}}
+</div>
+{{template "footer" .}}
+
